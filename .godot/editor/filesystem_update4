@@ -1,0 +1,9 @@
+res://Scenes/Character/Player/PlayerStates/PlayerStateIdle.cs
+res://Scenes/Character/Player/Player.cs
+res://Scenes/Character/Character.cs
+res://Scenes/Character/Player/PlayerStates/PlayerStateMoving.cs
+res://Scenes/Character/Player/PlayerState.cs
+res://Scenes/Character/Player/PlayerStateData.cs
+res://Scenes/Managers/InputManager.cs
+res://Scenes/Character/Player/Player.tscn
+res://Assets/Tiles/tile_set_1.tres

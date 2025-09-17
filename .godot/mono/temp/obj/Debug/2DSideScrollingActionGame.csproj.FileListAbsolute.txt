@@ -1,0 +1,17 @@
+D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\bin\Debug\2DSideScrollingActionGame.deps.json
+D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\bin\Debug\2DSideScrollingActionGame.runtimeconfig.json
+D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\bin\Debug\2DSideScrollingActionGame.dll
+D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\bin\Debug\2DSideScrollingActionGame.pdb
+D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\bin\Debug\GodotSharp.dll
+D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\obj\Debug\2DSideScrollingActionGame.csproj.AssemblyReference.cache
+D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\obj\Debug\2DSideScrollingActionGame.GeneratedMSBuildEditorConfig.editorconfig
+D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\obj\Debug\2DSideScrollingActionGame.AssemblyInfoInputs.cache
+D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\obj\Debug\2DSideScrollingActionGame.AssemblyInfo.cs
+D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\obj\Debug\2DSideScrollingActionGame.csproj.CoreCompileInputs.cache
+D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\obj\Debug\2DSideSc.2B1960B4.Up2Date
+D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\obj\Debug\2DSideScrollingActionGame.dll
+D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\obj\Debug\refint\2DSideScrollingActionGame.dll
+D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\obj\Debug\2DSideScrollingActionGame.pdb
+D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\obj\Debug\2DSideScrollingActionGame.genruntimeconfig.cache
+D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\obj\Debug\ref\2DSideScrollingActionGame.dll

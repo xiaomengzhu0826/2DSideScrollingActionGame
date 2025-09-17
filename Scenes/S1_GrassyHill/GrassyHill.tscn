@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=4 uid="uid://bii4cvnpfljha"]
+
+[ext_resource type="TileSet" uid="uid://ds36i8j0eb2rb" path="res://Assets/Tiles/tile_set_1.tres" id="1_fclfn"]
+[ext_resource type="PackedScene" uid="uid://5q5g1t6dcxlr" path="res://Scenes/S1_GrassyHill/Parallax.tscn" id="1_lfgn0"]
+[ext_resource type="PackedScene" uid="uid://bke0k7q88l2ib" path="res://Scenes/Character/Player/Player.tscn" id="4_yyu3g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfgn0"]
+size = Vector2(20, 201)
+
+[node name="GrassyHill" type="Node2D"]
+
+[node name="Parallax" parent="." instance=ExtResource("1_lfgn0")]
+
+[node name="TileMapLayers" type="Node2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayers"]
+tile_map_data = PackedByteArray("AAAAAAoAAQAAAAAAAAABAAoAAQAAAAAAAAACAAoAAQAAAAAAAAADAAoAAQAAAAAAAAAEAAoAAQAAAAAAAAAFAAoAAQAAAAAAAAAGAAoAAQAAAAAAAAAHAAoAAQAAAAAAAAAIAAoAAQAAAAAAAAAJAAoAAQAAAAAAAAAKAAoAAQAAAAAAAAALAAoAAQAAAAAAAAAMAAoAAQAAAAAAAAANAAoAAQAAAAAAAAAOAAoAAQAAAAAAAAAPAAoAAQAAAAAAAAAQAAoAAQAAAAAAAAARAAoAAQAAAAAAAAASAAoAAQAAAAAAAAATAAoAAQAAAAAAAAAUAAoAAQAAAAAAAAAWAAoAAQAAAAAAAAAVAAoAAQAAAAAAAAAAAAsAAQABAAAAAAABAAsAAQACAAAAAAACAAsAAQABAAAAAAADAAsAAQABAAAAAAAEAAsAAQACAAAAAAAFAAsAAQABAAAAAAAGAAsAAQABAAAAAAAHAAsAAQABAAAAAAAIAAsAAQABAAAAAAAJAAsAAQABAAAAAAAKAAsAAQABAAAAAAALAAsAAQABAAAAAAAMAAsAAQACAAAAAAANAAsAAQABAAAAAAAOAAsAAQABAAAAAAAPAAsAAQABAAAAAAAQAAsAAQACAAAAAAARAAsAAQABAAAAAAASAAsAAQABAAAAAAATAAsAAQACAAAAAAAUAAsAAQABAAAAAAAVAAsAAQABAAAAAAAWAAsAAQABAAAAAAA=")
+tile_set = ExtResource("1_fclfn")
+
+[node name="Player" parent="." instance=ExtResource("4_yyu3g")]
+position = Vector2(76, 161)
+
+[node name="Constrains" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Constrains"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Constrains/StaticBody2D"]
+position = Vector2(-10, 90)
+shape = SubResource("RectangleShape2D_lfgn0")

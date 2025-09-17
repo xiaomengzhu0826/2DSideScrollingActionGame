@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv2k1xnccuho5"]
+
+[ext_resource type="Script" uid="uid://bnmi4n0xmil6f" path="res://Scenes/Character/Character.cs" id="1_ai6n4"]
+[ext_resource type="Texture2D" uid="uid://b6yj80fpx4rg6" path="res://Assets/Player/char_blue_1.png" id="1_lpiwt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lpiwt"]
+radius = 7.0
+
+[node name="Character" type="CharacterBody2D"]
+script = ExtResource("1_ai6n4")
+
+[node name="CharacterSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_lpiwt")
+centered = false
+offset = Vector2(-26.5, -56)
+hframes = 8
+vframes = 11
+
+[node name="CharacterCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_lpiwt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

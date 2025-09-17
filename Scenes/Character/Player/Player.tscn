@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bke0k7q88l2ib"]
+
+[ext_resource type="PackedScene" uid="uid://cv2k1xnccuho5" path="res://Scenes/Character/Character.tscn" id="1_lpiwt"]
+[ext_resource type="Script" uid="uid://b18ln8ix6a341" path="res://Scenes/Character/Player/Player.cs" id="2_1lkyh"]
+
+[node name="Player" instance=ExtResource("1_lpiwt")]
+script = ExtResource("2_1lkyh")
+
+[node name="Camera2D" type="Camera2D" parent="." index="2"]
+limit_left = 0
+limit_top = 0
+limit_bottom = 180
+limit_smoothed = true

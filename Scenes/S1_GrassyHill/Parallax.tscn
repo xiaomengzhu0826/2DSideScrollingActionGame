@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://5q5g1t6dcxlr"]
+
+[ext_resource type="Texture2D" uid="uid://d2b2xjxltl7wi" path="res://Assets/S1Asset/2.png" id="1_8axi8"]
+[ext_resource type="Texture2D" uid="uid://cppk8kx2x1b8m" path="res://Assets/S1Asset/sky.png" id="1_evte1"]
+[ext_resource type="Texture2D" uid="uid://ctdlhuaqb7cvf" path="res://Assets/S1Asset/3.png" id="2_8axi8"]
+[ext_resource type="Texture2D" uid="uid://be82ajo5rfafa" path="res://Assets/S1Asset/4.png" id="2_p42g6"]
+[ext_resource type="Texture2D" uid="uid://c0vbekrt66f3a" path="res://Assets/S1Asset/cloud_5.png" id="3_omdpr"]
+
+[node name="Parallax" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.02, 0.02)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(0, -12)
+scale = Vector2(2.50781, 0.138672)
+texture = ExtResource("1_evte1")
+centered = false
+
+[node name="Cloud1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.02, 0.02)
+motion_mirroring = Vector2(500, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Cloud1"]
+position = Vector2(0, -12)
+scale = Vector2(0.251389, 0.251389)
+texture = ExtResource("1_8axi8")
+centered = false
+
+[node name="Cloud2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.01, 0.01)
+motion_mirroring = Vector2(1700, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Cloud2"]
+position = Vector2(0, 35)
+scale = Vector2(0.555556, 0.555556)
+texture = ExtResource("3_omdpr")
+centered = false
+
+[node name="FarSight" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.05, 0.05)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarSight"]
+position = Vector2(0, -12)
+scale = Vector2(0.558642, 0.558642)
+texture = ExtResource("2_8axi8")
+centered = false
+
+[node name="NearSight" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(319.99, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/NearSight"]
+position = Vector2(0, -12)
+scale = Vector2(0.555556, 0.558642)
+texture = ExtResource("2_p42g6")
+centered = false

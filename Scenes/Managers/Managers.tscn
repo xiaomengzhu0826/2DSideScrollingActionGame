@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc6ppgdtnbtpv"]
+
+[ext_resource type="PackedScene" uid="uid://c4jnourixpfch" path="res://Scenes/Managers/InputManager.tscn" id="1_0mrj2"]
+
+[node name="Managers" type="Node"]
+
+[node name="InputManager" parent="." instance=ExtResource("1_0mrj2")]
