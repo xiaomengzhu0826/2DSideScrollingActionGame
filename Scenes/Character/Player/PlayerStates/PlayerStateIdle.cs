@@ -3,12 +3,29 @@ using System;
 
 public partial class PlayerStateIdle : PlayerState
 {
-    public override void _PhysicsProcess(double delta)
+    private float _acceleration = 50f;
+    private float _groundBrake = 20f;
+
+    public override void Enter(PlayerData data = null)
     {
-        Vector2 input = InputManager.GetInputVector(Player.ControlScheme.P1);
-        if (input != Vector2.Zero)
+        GD.Print("Enter State Idle");
+        Player.PlayerAnimation.Play("idle");
+    }
+
+    public override void FixedUpdate(double delta)
+    {
+        float xInput = InputManager.GetHorizontalAxis(Player.CurrentControlScheme);
+        if (xInput != 0)
         {
-            TransitionState(Player.State.MOVING);
+            Player.ChangeState(Player.MoveState);
         }
-	}
+        else
+        {
+            Player.Velocity = new Vector2(Mathf.Lerp(Player.Velocity.X, 0, _groundBrake * (float)delta), Player.Velocity.Y);
+        }
+        if (InputManager.IsActionPressed(Player.CurrentControlScheme, InputManager.InputType.JUMP) && Player.IsOnFloor())
+        {
+            Player.ChangeState(Player.JumpPreparationState);
+        }
+    }
 }

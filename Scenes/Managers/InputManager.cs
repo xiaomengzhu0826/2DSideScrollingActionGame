@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 public partial class InputManager : Node
 {
-    public static InputManager Instance {get;private set;}
-    
+    public static InputManager Instance { get; private set; }
+
     public override void _Ready()
     {
-        Instance=this;
+        Instance = this;
     }
-    
-    public enum InputType { LEFT, RIGHT, UP, DOWN, JUMP, ATTACK }
+
+    public enum InputType { LEFT, RIGHT, UP, DOWN, JUMP, ATTACK, SPRINT }
 
     public static readonly Dictionary<Player.ControlScheme, Dictionary<InputType, string>> INPUT_MAP = new()
     {
@@ -22,6 +22,8 @@ public partial class InputManager : Node
                 { InputType.RIGHT, "p1_right" },
                 { InputType.UP, "p1_up" },
                 { InputType.DOWN, "p1_down" },
+                { InputType.JUMP, "p1_jump" },
+                
             }
         },
         {
@@ -50,9 +52,15 @@ public partial class InputManager : Node
     {
         return Input.IsActionJustPressed(INPUT_MAP[scheme][action]);
     }
-    
-    public static bool IsActionJustReleased(Player.ControlScheme scheme,InputType action)
+
+    public static bool IsActionJustReleased(Player.ControlScheme scheme, InputType action)
     {
         return Input.IsActionJustReleased(INPUT_MAP[scheme][action]);
+    }
+    
+    public static float GetHorizontalAxis(Player.ControlScheme scheme)
+    {
+        Dictionary<InputType, string> map = INPUT_MAP[scheme];
+        return Input.GetAxis(map[InputType.LEFT], map[InputType.RIGHT]);
     }
 }

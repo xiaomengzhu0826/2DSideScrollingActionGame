@@ -1,16 +1,16 @@
 using Godot;
 using System;
 
-public partial class PlayerStateData : Resource
+public partial class PlayerData : Resource
 {
     public Vector2 SpawnPoint;
 
-    public static PlayerStateData Build()
+    public static PlayerData Build()
     {
-        return new PlayerStateData();
+        return new PlayerData();
     }
 
-    public PlayerStateData SetSpawnPoint(Vector2 spawnPoint)
+    public PlayerData SetSpawnPoint(Vector2 spawnPoint)
     {
         SpawnPoint = spawnPoint;
         return this;

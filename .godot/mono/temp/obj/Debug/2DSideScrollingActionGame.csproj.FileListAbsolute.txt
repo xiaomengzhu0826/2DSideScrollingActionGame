@@ -15,3 +15,4 @@ D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\obj\Debug\refint\2
 D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\obj\Debug\2DSideScrollingActionGame.pdb
 D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\obj\Debug\2DSideScrollingActionGame.genruntimeconfig.cache
 D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\obj\Debug\ref\2DSideScrollingActionGame.dll
+D:\Godot\Templates\2DSideScrollingActionGame\.godot\mono\temp\obj\Debug\2DSideScrollingActionGame.sourcelink.json

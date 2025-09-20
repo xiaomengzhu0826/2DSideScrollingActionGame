@@ -1,52 +1,125 @@
 using Godot;
 using System;
 
-public partial class Player : Character
+public partial class Player : CharacterBody2D
 {
+	public PlayerState CurrentState;
+
+	public PlayerStateMove MoveState;
+	public PlayerStateJump JumpState;
+	public PlayerStateIdle IdleState;
+	public PlayerStateBrake BrakeState;
+	public PlayerStateFall FallState;
+	public PlayerStateJumpPreparation JumpPreparationState;
+
 	public enum ControlScheme { P1, P2, CPU };
 
-	
+	public AnimationPlayer PlayerAnimation;
+	private Sprite2D _playeSprite;
+	private Node2D _stateMachine;
+
+	public ControlScheme CurrentControlScheme;
+	public Vector2 Heading = Vector2.Right;
+
 	public float NormalSpeed = 100.0f;
-	public float SprintSpeed = 150.0f;
-
-	private PlayerState _currentState;
-	private PlayerStateFactroy _stateFactroy = new();
-
-	public enum State
-	{
-		IDLE,
-		MOVING,
-		JUMPING,
-		ATTACKING
-	}
+    private float _gravity = 500.0f;
 
 	public override void _Ready()
 	{
-		SwitchState(State.IDLE, null);
+		CurrentControlScheme = ControlScheme.P1;
+		PlayerAnimation = GetNode<AnimationPlayer>("AnimationPlayer");
+		_playeSprite = GetNode<Sprite2D>("PlayerSprite");
+		_stateMachine = GetNode<Node2D>("PlayerStateMachine");
+
+		MoveState = new PlayerStateMove();
+		JumpState = new PlayerStateJump();
+		IdleState = new PlayerStateIdle();
+		BrakeState = new PlayerStateBrake();
+		FallState = new PlayerStateFall();
+		JumpPreparationState = new PlayerStateJumpPreparation();
+
+		_stateMachine.AddChild(MoveState);
+		_stateMachine.AddChild(JumpState);
+		_stateMachine.AddChild(IdleState);
+		_stateMachine.AddChild(BrakeState);
+		_stateMachine.AddChild(FallState);
+		_stateMachine.AddChild(JumpPreparationState);
+
+		ChangeState(IdleState);
 	}
 
-	private void ProcessGravity()
+	public void SetHeading()
 	{
-
-	}
-
-	public override void _PhysicsProcess(double delta)
-	{
-		MoveAndSlide();
+		if (Velocity.X > 0)
+		{
+			Heading = Vector2.Right;
+		}
+		else if (Velocity.X < 0)
+		{
+			Heading = Vector2.Left;
+		}
 	}
 	
-	public void SwitchState(State state, PlayerStateData stateData)
+	public override void _Process(double delta)
+    {
+        CurrentState?.Update(delta);
+    }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        CurrentState?.FixedUpdate(delta);
+        if (Velocity.Y > 0)
+        {
+            ChangeState(FallState);
+        }
+        ProcessFlipSprites();
+        ProcessGravity(delta);
+        MoveAndSlide();
+    }
+
+    public void ChangeState(PlayerState newState, PlayerData data = null)
+    {
+        if (CurrentState == newState)
+            return;
+
+        // 通知旧状态退出
+        CurrentState?.Exit();
+
+        // 切换到新状态
+        CurrentState = newState;
+        CurrentState.Init(this);
+
+        // 通知新状态进入，并传入上下文数据
+        CurrentState.Enter(data);
+    }
+
+    private void ProcessGravity(double delta)
+    {
+        if (!IsOnFloor())
+        {
+            Velocity = new Vector2(Velocity.X, Velocity.Y + _gravity * (float)delta);
+        }
+    }
+
+    private void ProcessFlipSprites()
+    {
+        if (Heading == Vector2.Right)
+        {
+            _playeSprite.FlipH = false;
+        }
+        else
+        {
+            _playeSprite.FlipH = true;
+        }
+    }
+
+    public void OnAnimationCompelete()
 	{
-		if (_currentState != null)
+		if (CurrentState != null)
 		{
-			_currentState.OnStateTransitionRequest -= SwitchState;
-			_currentState.QueueFree();
+			CurrentState.OnAnimationCompelete();
 		}
-		_currentState = _stateFactroy.GetNewState(state);
-		_currentState.Setup(this);
-		_currentState.OnStateTransitionRequest += SwitchState;
-		_currentState.Name = "PlayerStateMachine:" + state.ToString();
-		GD.Print(_currentState.Name);
-		CallDeferred("add_child", _currentState);
 	}
+
+
 }

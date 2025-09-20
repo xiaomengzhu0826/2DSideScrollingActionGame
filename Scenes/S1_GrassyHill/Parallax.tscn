@@ -12,20 +12,20 @@
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.02, 0.02)
-motion_mirroring = Vector2(320, 0)
+motion_mirroring = Vector2(561.318, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
-position = Vector2(0, -12)
-scale = Vector2(2.50781, 0.138672)
+position = Vector2(1.0000001, -85.00001)
+scale = Vector2(4.382812, 0.2423522)
 texture = ExtResource("1_evte1")
 centered = false
 
 [node name="Cloud1" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.02, 0.02)
-motion_mirroring = Vector2(500, 0)
+motion_mirroring = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Cloud1"]
-position = Vector2(0, -12)
+position = Vector2(0, -41)
 scale = Vector2(0.251389, 0.251389)
 texture = ExtResource("1_8axi8")
 centered = false

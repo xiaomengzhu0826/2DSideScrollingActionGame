@@ -3,23 +3,20 @@ using System;
 
 public partial class PlayerState : Node
 {
-    [Signal] public delegate void OnStateTransitionRequestEventHandler(Player.State newState, PlayerStateData stateData);
+    protected Player Player;
 
-    protected Player _player;
+    public void Init(Player player)
+    {
+        Player = player;
+    }
 
+    public virtual void Enter(PlayerData data = null) { }
+    public virtual void Exit() { }
+    public virtual void Update(double delta) { }
+    public virtual void FixedUpdate(double delta) { }
+    
     public virtual void OnAnimationCompelete()
     {
 
     }
-
-    public void Setup(Player contextPlayer)
-    {
-        _player = contextPlayer;
-    }
-
-    public void TransitionState(Player.State newState,PlayerStateData data=null)
-    {
-        EmitSignal(SignalName.OnStateTransitionRequest,(int)newState,data);
-    }
-
 }
